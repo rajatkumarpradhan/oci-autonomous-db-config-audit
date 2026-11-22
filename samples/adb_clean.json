@@ -1,0 +1,10 @@
+{
+  "databases": [
+    {"name": "webshop-orders", "access_type": "private", "mtls_required": true,
+     "auto_scaling": true, "labels": ["prod"], "description": "orders database",
+     "tags": ["team:retail", "env:prod"]},
+    {"name": "analytics", "access_type": "allowed-ips", "mtls_required": true,
+     "auto_scaling": true, "labels": ["analytics"], "description": "analytics warehouse",
+     "tags": ["team:data"]}
+  ]
+}
