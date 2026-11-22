@@ -30,8 +30,8 @@ def rule_public_without_mtls(databases: tuple) -> list:
     """ADB002 MEDIUM: public network access with mTLS not required."""
     return [
         Finding("ADB002", "MEDIUM", d.name,
-                f"public access type {d.access_type!r} with mTLS not required; per OCI docs the default "
-                f"allows plain TLS connections without a client wallet - review whether to require mTLS")
+                f"public access type {d.access_type!r} with mTLS not required; TLS access may be enabled with ACLs; "
+                f"wallet-free support depends on the client - review whether to require mTLS")
         for d in databases if d.is_public() and not d.mtls_required
     ]
 
